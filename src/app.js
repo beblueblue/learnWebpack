@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './main.css';
-import './app.css';
+import './common/style/main.css';
 
 ReactDOM.render(
     <h1 className="ot">Hello, React.</h1>,
