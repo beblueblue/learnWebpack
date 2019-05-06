@@ -5,12 +5,25 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve( __dirname, 'dist' ),
-        filename: 'pluginTest.js'
+        filename: 'app.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'pluginTest.html',
+            filename: 'index.html',
             template: 'src/index.html'
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['react']
+                    }
+                }]
+            }
+        ]
+    }
 };

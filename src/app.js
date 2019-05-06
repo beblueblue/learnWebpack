@@ -1,7 +1,7 @@
-import a from './a.js';
-import b from './b.js';
-import c from './c.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-a();
-b();
-c();
+ReactDOM.render(
+    <h1>Hello, React.</h1>,
+    document.getElementById('app')
+);
