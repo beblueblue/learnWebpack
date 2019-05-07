@@ -34,7 +34,7 @@ module.exports = {
             //     1. 把你的资源移动到输出目录
             //     2. 放回最终引入资源的url
             {
-                test: /\.(ttf|eot|svg|woff)$/,
+                test: /\.(ttf|eot|svg|woff|woff2)$/,
                 use: [ 'file-loader' ]
             },
             {
