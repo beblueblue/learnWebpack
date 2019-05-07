@@ -1,2 +1,10 @@
+# 忽略npm依赖包
 node_modules/
+# 忽略npm插件初始安装信息
 package-lock.json
+
+# 忽略vsCode配置信息
+.vscode/
+
+# 忽略静态编译文件
+dist/
