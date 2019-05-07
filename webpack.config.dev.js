@@ -30,6 +30,13 @@ module.exports = {
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
             },
+            // file-loader:
+            //     1. 把你的资源移动到输出目录
+            //     2. 放回最终引入资源的url
+            {
+                test: /\.(ttf|eot|svg|woff)$/,
+                use: [ 'file-loader' ]
+            },
             {
                 test: /\.(jpg|png|gif)$/,
                 use: [
