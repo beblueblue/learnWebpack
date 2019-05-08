@@ -56,6 +56,68 @@ module.exports = {
                     path.resolve( __dirname, 'src/common' ),
                 ]
             },
+            // 处理scss, sass文件
+            {
+                test: /\.s(c|a)ss$/,
+                use: [ 
+                        'style-loader', 
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                module: true,
+                                localIdentName: '[name]_[local]_[hash:base64:6]'
+                            }
+                        },
+                        'sass-loader',
+                    ],
+                exclude: [
+                    path.resolve( __dirname, 'node_modules' ),
+                    path.resolve( __dirname, 'src/common' ),
+                ]
+            },
+            {
+                test: /\.s(c|a)ss$/,
+                use: [ 
+                        'style-loader', 
+                        'css-loader',
+                        'sass-loader',
+                    ],
+                include: [
+                    path.resolve( __dirname, 'node_modules' ),
+                    path.resolve( __dirname, 'src/common' ),
+                ]
+            },
+            // 处理less文件
+            {
+                test: /\.less$/,
+                use: [ 
+                        'style-loader', 
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                module: true,
+                                localIdentName: '[name]_[local]_[hash:base64:6]'
+                            }
+                        },
+                        'less-loader',
+                    ],
+                exclude: [
+                    path.resolve( __dirname, 'node_modules' ),
+                    path.resolve( __dirname, 'src/common' ),
+                ]
+            },
+            {
+                test: /\.less$/,
+                use: [ 
+                        'style-loader', 
+                        'css-loader',
+                        'less-loader',
+                    ],
+                include: [
+                    path.resolve( __dirname, 'node_modules' ),
+                    path.resolve( __dirname, 'src/common' ),
+                ]
+            },
             // file-loader:
             //     1. 把你的资源移动到输出目录
             //     2. 放回最终引入资源的url
