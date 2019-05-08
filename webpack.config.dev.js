@@ -26,6 +26,8 @@ module.exports = {
                     }
                 ]
             },
+            // 处理css文件，模块化引入(import [objName] from [url])
+            // localIdentName ： '[path]_[name]_[local]_[hash:base64:6]'
             {
                 test: /\.css$/,
                 use: [ 
@@ -33,7 +35,8 @@ module.exports = {
                         {
                             loader: 'css-loader',
                             options: {
-                                module: true
+                                module: true,
+                                localIdentName: '[path]_[name]_[local]_[hash:base64:6]'
                             }
                         } 
                     ],
