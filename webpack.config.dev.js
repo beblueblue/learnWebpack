@@ -36,7 +36,22 @@ module.exports = {
                                 module: true
                             }
                         } 
-                    ]
+                    ],
+                exclude: [
+                    path.resolve( __dirname, 'node_modules' ),
+                    path.resolve( __dirname, 'src/common' ),
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [ 
+                        'style-loader', 
+                        'css-loader',
+                    ],
+                include: [
+                    path.resolve( __dirname, 'node_modules' ),
+                    path.resolve( __dirname, 'src/common' ),
+                ]
             },
             // file-loader:
             //     1. 把你的资源移动到输出目录
