@@ -28,7 +28,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                use: [ 
+                        'style-loader', 
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                module: true
+                            }
+                        } 
+                    ]
             },
             // file-loader:
             //     1. 把你的资源移动到输出目录

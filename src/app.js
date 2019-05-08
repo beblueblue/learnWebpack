@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './common/style/font.css';
-
-import 'font-awesome/css/font-awesome.css';
+import main from './common/style/main.css';
+import page from './common/style/page.css';
+console.log(main)
 
 ReactDOM.render(
-    <div>
+    <div className={ main.ut + ' ' + main.ot }>
         Hello React!
-        <span className="icon-yifukuan"></span>
-        <span className="fa fa-rocket"></span>
+        <span className={ page.ot }>黄色</span>
     </div>,
     document.getElementById('app')
 );
