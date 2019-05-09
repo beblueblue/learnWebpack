@@ -20,11 +20,10 @@ module.exports = {
                 use: [
                     {
                         loader: 'babel-loader',
-                        options: {
-                            presets: ['react', 'env'],
-                            plugins: ['transform-object-rest-spread']
-                        }
                     }
+                ],
+                exclude: [
+                    path.resolve( __dirname, 'node_modules' ),
                 ]
             },
             // 处理css文件，模块化引入(import [objName] from [url])
