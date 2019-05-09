@@ -6,13 +6,13 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve( __dirname, 'dist/assets' ),
-        filename: 'js/app.js',
+        filename: 'assets/js/app.js',
         // 所有资源的基础路径，总是 "/" 结尾
-        publicPath: 'assets/',
+        publicPath: '/',
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: 'index.html',
             template: 'src/index.html'
         }),
         new CleanWebpackPlugin({
@@ -138,7 +138,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 200000,
-                            name: 'img/[name]_[hash:8].[ext]'
+                            name: 'assets/img/[name]_[hash:8].[ext]'
                         }
                     }
                 ]
@@ -149,7 +149,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'fonts/[name]_[hash:8].[ext]'
+                            name: 'assets/fonts/[name]_[hash:8].[ext]'
                         }
                     } 
                 ]
@@ -158,6 +158,10 @@ module.exports = {
     },
     devServer: {
         open: true,
-        port: 3100
+        port: 3100,
+        contentBase: './src/common/',
+        // 服务器所打包资源的输出路径。总是以 "/" 开头，总是以 "/" 结尾
+        // 所有资源打包查询的起点
+        publicPath: '/',
     }
 };
