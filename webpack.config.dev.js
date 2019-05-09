@@ -6,7 +6,9 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve( __dirname, 'dist/assets' ),
-        filename: 'js/app.js'
+        filename: 'js/app.js',
+        // 所有资源的基础路径，总是 "/" 结尾
+        publicPath: 'assets/',
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -14,7 +16,9 @@ module.exports = {
             template: 'src/index.html'
         }),
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'dist')]
+            cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'dist')],
+            dry: true,
+            verbose: true,
         })
     ],
     module: {
