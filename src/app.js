@@ -1,20 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-let ss = 'ss';
-() => {
-    console.log('块级作用域变量：' + ss);
-};
-let a = {a: 1, b: 2};
-let c = {...a, c: 3};
-
-class normalC{
-
-}
+import 'font-awesome/css/font-awesome.css';
 
 ReactDOM.render(
     <div>
         Hello React!
+        <span className="fa fa-rocket"></span>
+        <img src={require('./common/img/bottom.jpg')} alt="" />
+        <img src={require('./common/img/bg_red.jpg')} alt="" />
     </div>,
     document.getElementById('app')
 );

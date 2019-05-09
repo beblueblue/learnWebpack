@@ -5,6 +5,3 @@ package-lock.json
 
 # 忽略vsCode配置信息
 .vscode/
-
-# 忽略静态编译文件
-dist/

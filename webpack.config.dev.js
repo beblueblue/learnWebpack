@@ -1,16 +1,20 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: path.resolve( __dirname, 'dist' ),
-        filename: 'app.js'
+        path: path.resolve( __dirname, 'dist/assets' ),
+        filename: 'js/app.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: '../index.html',
             template: 'src/index.html'
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, 'dist')]
         })
     ],
     module: {
@@ -121,21 +125,31 @@ module.exports = {
             // file-loader:
             //     1. 把你的资源移动到输出目录
             //     2. 放回最终引入资源的url
-            {
-                test: /\.(ttf|eot|svg|woff|woff2)$/,
-                use: [ 'file-loader' ]
-            },
+            //     options.name: 默认为'[hash].[ext]'
+            //         '[path]_[name]_[hash].[ext]'
             {
                 test: /\.(jpg|png|gif)$/,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 200000
+                            limit: 200000,
+                            name: 'img/[name]_[hash:8].[ext]'
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(ttf|eot|svg|woff|woff2)$/,
+                use: [ 
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'fonts/[name]_[hash:8].[ext]'
+                        }
+                    } 
+                ]
+            },
         ]
     },
     devServer: {
